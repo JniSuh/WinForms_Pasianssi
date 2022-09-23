@@ -54,6 +54,8 @@ namespace korttipeli
             this.Controls.Add(this.imgDeck);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
+            this.Click += new System.EventHandler(this.Form1_Click);
             ((System.ComponentModel.ISupportInitialize)(this.imgDeck)).EndInit();
             this.ResumeLayout(false);
 

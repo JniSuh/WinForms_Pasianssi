@@ -19,8 +19,6 @@ namespace korttipeli
                 foreach (string suite in Card.suites)
                 {
                     Card card = new Card(i, suite);
-                    card.Name = card.Suite[0].ToString() + card.Value;
-                    card.CardPicture = Actions.GetImage(card.Name);
                     Cards.Add(card);
                 }
             }

@@ -15,7 +15,7 @@ namespace korttipeli
 
         public string Suite;
 
-        public Image CardPicture;
+        public Image Image;
 
         public string Name;
 
@@ -23,6 +23,7 @@ namespace korttipeli
         {
             Value = value;
             Suite = suite;
+            Name = Suite[0] + Value.ToString();
         }
     }
 }
