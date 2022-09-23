@@ -67,8 +67,6 @@ namespace korttipeli
                             if (pb.Name == Form1.cardToMove.Name) { oldCol = Form1.Columns.IndexOf(col); break; }
 
                         }
-                        //if (col.Cards.Contains(Form1.targetedCard)) newCol = Form1.Columns.IndexOf(col);
-                        //if (col.Cards.Contains(Form1.cardToMove)) oldCol = Form1.Columns.IndexOf(col);
                     }
 
 
@@ -86,8 +84,6 @@ namespace korttipeli
                                 if (pb.Name == Form1.targetedCard.Name) { newCol = Form1.Columns.IndexOf(col); break; }
                                 if (pb.Name == Form1.cardToMove.Name) { oldCol = Form1.Columns.IndexOf(col); break; }
                             }
-                            //if (col.Cards.Contains(Form1.targetedCard)) newCol = Form1.Columns.IndexOf(col);
-                            //if (col.Cards.Contains(Form1.cardToMove)) oldCol = Form1.Columns.IndexOf(col);
                         }
 
 
@@ -122,13 +118,15 @@ namespace korttipeli
                 }
             }
 
-            //if (oldCol >= 0)
-            //{
-            //    Form1.Columns.RemoveAt(oldCol);
-            //}
-            if (newCol < 0) newCol = 0;
-
-            if (oldCol >= 0) Form1.Columns[oldCol].Cards.Remove(cardToMove);
+            if (oldCol >= 0)
+            {
+                Form1.Columns[oldCol].Cards.Remove(cardToMove);
+                if (Form1.Columns[oldCol].Cards.Count > 0)
+                {
+                    Form1.Columns[oldCol].Cards.Last().Image = GetImage(Form1.Columns[oldCol].Cards.Last().Name);
+                    Form1.Columns[oldCol].Cards.Last().Enabled = true;
+                }
+            }
             //Form1.Columns[newCol].Y_axis += 30;
             //cardToMove.Location = new Point(Form1.Columns[newCol].X_axis, Form1.Columns[newCol].Y_axis);
             //cardToMove.BringToFront();
@@ -137,7 +135,6 @@ namespace korttipeli
             Card newCard = new Card(int.Parse(cardToMove.Name.Substring(1)), cardToMove.Name[0].ToString());
             Form1.Columns[newCol].Y_axis += 30;
             createCard(form, Form1.Columns[newCol].X_axis, Form1.Columns[newCol].Y_axis, newCard);
-            //Form1.Columns[newCol].Cards.Add(cardToMove);
 
             cardToMove.Dispose();
         }
