@@ -10,15 +10,17 @@ namespace korttipeli
     public class Deck
     {
         public List<Card> Cards = new List<Card>();
-        public List<PictureBox> Card_objs = new List<PictureBox>();
 
-        public void fillDeck()
+        public void fillDeck(Form form)
         {
             for (int i = 1; i < 14; i++)
             {
                 foreach (string suite in Card.suites)
                 {
                     Card card = new Card(i, suite);
+                    card.pictureBox = Form1.createCardObj(form, card);
+                    card.pictureBox.Hide();
+                    card.pictureBox.Enabled = false;
                     Cards.Add(card);
                 }
             }

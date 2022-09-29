@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
+using System.Windows.Forms;
 
 namespace korttipeli
 {
@@ -15,9 +16,9 @@ namespace korttipeli
 
         public string Suite;
 
-        public Image Image;
-
         public string Name;
+
+        public PictureBox pictureBox;
 
         public Card(int value, string suite)
         {
