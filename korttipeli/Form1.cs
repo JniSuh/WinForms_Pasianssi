@@ -53,7 +53,7 @@ namespace korttipeli
                 imgDeck.Image = GetImage("Empty");
             }
 
-            if (deck.Cards.Count == 0)
+            if (deck.Cards.Count == 0 && drawnCards.Count > 0)
             {
                 foreach (Card card in Columns[0].Cards) card.pictureBox.Hide();
                 deck.Cards = new List<Card>(Columns[0].Cards);

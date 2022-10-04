@@ -80,6 +80,7 @@ namespace korttipeli
 
         public static void moveCard(Card cardToMove, Col newCol, Col oldCol)
         {
+            if (oldCol == newCol) return;
             if (newCol.canAddCards)
             {
                 if (oldCol.recursive)
